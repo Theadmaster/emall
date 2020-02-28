@@ -3,8 +3,8 @@
     <van-nav-bar title="编辑收货人"
      border>
         <van-icon name="arrow-left" slot="left" color="#7f8c8d" />
-        
     </van-nav-bar>
+
     <van-form @submit="onSubmit">
         <!-- 收货人姓名填写 -->
         <van-field
@@ -106,6 +106,7 @@ import Area from 'assets/js/area.js'
 import { Radio } from 'vant'
 
 import {request} from 'network/request.js'
+
 export default {
   name: "Address",
   components: {},

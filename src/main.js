@@ -2,7 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
 
-import { Button, Form, Area, NavBar, Icon, Field, Switch, Popup, Col, Row   } from 'vant';
+import { Button, Form, Area, NavBar, Icon, Field, Switch, Popup,
+        Col, Row, Cell, CellGroup   } from 'vant';
 import axios from 'axios';
 
 Vue.use(Button);
@@ -15,6 +16,8 @@ Vue.use(Switch);
 Vue.use(Popup);
 Vue.use(Col);
 Vue.use(Row);
+Vue.use(Cell);
+Vue.use(CellGroup);
 
 Vue.config.productionTip = false
 

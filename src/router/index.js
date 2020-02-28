@@ -3,13 +3,14 @@ import Router from 'vue-router'
 
 import Address from '../views/profile/address/Address.vue'
 import AddressChange from '../views/profile/address/AddressChange.vue'
+import Login from '../views/login/Login.vue'
 
 Vue.use(Router)
 
 const routes = [
     {
         path: '',
-        redirect: '/addresschange'
+        redirect: '/login'
     },
     {
         path: '/address',
@@ -18,6 +19,10 @@ const routes = [
     {
         path: '/addresschange',
         component: AddressChange
+    },
+    {
+        path:'/login',
+        component: Login
     }
 ]
 
