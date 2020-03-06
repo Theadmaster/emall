@@ -8,13 +8,18 @@ const AddressChange = () => import('views/profile/address/AddressChange.vue')
 
 const Login = () => import('../views/login/Login.vue')
 const Profile = () => import('../views/profile/Profile.vue')
+const Home = () => import('../views/home/Home.vue')
 
 Vue.use(Router)
 
 const routes = [
     {
         path: '',
-        redirect: '/addresslist'
+        redirect: '/home'
+    },
+    {
+        path: '/home',
+        component: Home
     },
     {
         path: '/address/:b_s_id',

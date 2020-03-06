@@ -18,16 +18,26 @@ export default {
     display: flex;
     line-height: 44px;
     text-align: center;
-    box-shadow: 0 1px 1px rgba(100, 100, 100, .1)
-    
+    box-shadow: 0 1px 1px rgba(100, 100, 100, .1);
+    position: relative;
 }
-.left, .right {
+.left {
     width: 60px;
-    
+    position: absolute;
+    top: 5.5px;
 }
+.right {
+    width: 60px;
+    position: absolute;
+    top: 5.5px;
+    right: 0;
+}
+
 .center {
-    flex: 1;
+    flex: 1.5;
+    position: absolute;
     
+    left: 60px;
 }
 
 </style>
