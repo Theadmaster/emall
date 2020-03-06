@@ -1,28 +1,40 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Address from '../views/profile/address/Address.vue'
-import AddressChange from '../views/profile/address/AddressChange.vue'
-import Login from '../views/login/Login.vue'
+
+const AddressList = () => import('views/profile/address/AddressList.vue')
+const Address = () => import('views/profile/address/Address.vue')
+const AddressChange = () => import('views/profile/address/AddressChange.vue')
+
+const Login = () => import('../views/login/Login.vue')
+const Profile = () => import('../views/profile/Profile.vue')
 
 Vue.use(Router)
 
 const routes = [
     {
         path: '',
-        redirect: '/login'
+        redirect: '/addresslist'
     },
     {
-        path: '/address',
+        path: '/address/:b_s_id',
         component: Address
     },
     {
-        path: '/addresschange',
+        path: '/addresschange/:address_id',
         component: AddressChange
+    },
+    {
+        path: '/addresslist',
+        component: AddressList
     },
     {
         path:'/login',
         component: Login
+    },
+    {
+        path: '/profile',
+        component: Profile
     }
 ]
 

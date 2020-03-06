@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router/index'
 
 import { Button, Form, Area, NavBar, Icon, Field, Switch, Popup,
-        Col, Row, Cell, CellGroup   } from 'vant';
+        Col, Row, Cell, CellGroup, Grid, GridItem, Tag, ActionSheet, 
+        Toast, Tabbar, TabbarItem    } from 'vant';
 import axios from 'axios';
 
 Vue.use(Button);
@@ -18,6 +19,13 @@ Vue.use(Col);
 Vue.use(Row);
 Vue.use(Cell);
 Vue.use(CellGroup);
+Vue.use(Grid);
+Vue.use(GridItem);
+Vue.use(Tag);
+Vue.use(ActionSheet);
+Vue.use(Toast);
+Vue.use(Tabbar);
+Vue.use(TabbarItem);
 
 Vue.config.productionTip = false
 

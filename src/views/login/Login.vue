@@ -9,7 +9,7 @@
       <!-- logo -->
       <div class="img">
           <img src="~assets/logo.png" alt="">
-          <div><span>正品低价有保障，好物好货上V购</span></div>
+          <div><span>正品低价有保障，好物好货上Vue购</span></div>
       </div>
 
       <!-- 账号密码输入 -->
@@ -36,8 +36,8 @@
       <div class="loginBtn">
           <van-button round block type="info" 
             @click="submit"
-            color="linear-gradient(to right, #e74c3c, #e67e22)"
-            size="small">
+            color="linear-gradient(to right, #23cba7, #7befb2)"
+            size="normal">
             登录
           </van-button>
       </div>
@@ -59,6 +59,12 @@
           <span class="right"></span>
       </div>
 
+      <!-- wx or qq -->
+      <div class="login-pattern">
+          <div class="wx"><img src="~assets/img/WX.svg" alt=""></div>
+          <div class="qq"><img src="~assets/img/qq.svg" alt=""></div>
+      </div>
+
   </div>
 </template>
 
@@ -75,7 +81,8 @@ export default {
     },
     methods: {
         forgetPwd() {
-
+            console.log('forget');
+            
         },
         changeEye() {
             this.isOpen = !this.isOpen
@@ -159,5 +166,18 @@ export default {
     bottom: 7px;
 }
 
+.login-pattern {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.qq img{
+    width: 50px;
+}
+
+.wx img{
+    width: 55px;
+}
 
 </style>
