@@ -153,7 +153,8 @@ export default {
           tag: '',
           nowTag: '',
           postcode: '',
-          address_id: 0
+          address_id: 0,
+          b_s_id: 0
       }
   },
   created() {
@@ -178,6 +179,7 @@ export default {
           }
           this.tag = res[0].label
           this.address_id = res[0].address_id
+          this.b_s_id = res[0].b_s_id
         
       })
   },
@@ -203,11 +205,16 @@ export default {
                   telephone: value.telephone,
                   default_status: default_status,
                   postcode: value.postcode,
-                  label: value.label
+                  label: value.label,
+                  b_s_id: this.b_s_id
               }
               
           }).then(res => {
               console.log(res);
+              if(res == 200) {
+                  Toast.success('编辑成功！')
+                  this.$router.go(-1);
+              }
           }).catch(err => {
               console.log(err);
           })
