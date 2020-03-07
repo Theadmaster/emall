@@ -1,7 +1,7 @@
 <template>
   <div class="home">
       <!-- 导航栏 -->
-      <home-nav-bar />
+      <home-nav-bar class="nav-bar" />
 
       <!-- 轮播 -->
       <div class="swiper">
@@ -69,6 +69,18 @@ export default {
 
 .home {
     background-color: #f5f6fa;
+}
+
+.nav-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 99; 
+}
+
+.swiper {
+    margin-top: 44px;
 }
 
 .my-swipe .van-swipe-item {
