@@ -35,7 +35,6 @@
 
         <!-- 地区选择器 -->
         <van-field
-        readonly
         clickable
         name="address"
         :value="value"
@@ -44,7 +43,7 @@
         @click="showArea = true"
         right-icon="location-o"
         @click-right-icon="positioning"
-        v-model="area"
+        
         >
 
         </van-field>
@@ -85,13 +84,22 @@
         <!-- 标签 -->
         <van-field
         name = "label"
-        v-model="tag"
+        
         >
         <van-cell slot="input">
         <!-- 使用 title 插槽来自定义标题 -->
             <template slot="title">
                 <span class="custom-title">标签</span>
-                <van-tag class="tag" type="primary" round @click="">{{tag}}</van-tag>
+                <div class="tag-items">
+                    <van-tag class="tag" v-for="(item, index) in tag" :key="index"
+                    type="primary" 
+                    round 
+                    size="medium"
+                    :plain="!(index == currentIndex)"
+                    @click="tagSelect(index)">
+                    {{item}}
+                    </van-tag>
+                </div>
             </template>
         </van-cell>
         
@@ -150,11 +158,12 @@ export default {
           areaList: Area, // 数据格式见 Area 组件文档
           label: '',
           isDefault: false,
-          tag: '',
-          nowTag: '',
+          tag: ['学校', '公司', '家'],
+          currentIndex: 0,
           postcode: '',
           address_id: 0,
           b_s_id: 0
+
       }
   },
   created() {
@@ -169,7 +178,7 @@ export default {
         //   console.log(res);
           this.buyername = res[0].addresssee;
           this.phone = res[0].telephone;
-          this.area = res[0].address;
+          this.value = res[0].address;
           this.detailAddress = res[0].address_detail;
           this.postcode = res[0].postcode;
           if(res[0].default_status==1){
@@ -177,11 +186,25 @@ export default {
           }else{
               this.isDefault = false
           }
-          this.tag = res[0].label
+        //   this.tag. = res[0].label
+          switch(res[0].label){
+              case '学校':
+                  this.currentIndex = 0;
+                  break;
+              case '公司':
+                  this.currentIndex = 1;
+                  break;
+              case '家':
+                  this.currentIndex = 2;
+                  break;
+          }
           this.address_id = res[0].address_id
           this.b_s_id = res[0].b_s_id
         
       })
+  },
+  updated() {
+      
   },
   methods: {
       onSubmit(value) {
@@ -195,6 +218,19 @@ export default {
               default_status = 0
           }
           
+        //   判断标签
+          let nowTag = ''
+          switch(this.currentIndex){
+              case 0:
+                  nowTag = '学校';
+                  break;
+              case 1:
+                  nowTag = '公司';
+                  break;
+              case 2:
+                  nowTag = '家';
+                  break;
+          }
           request({
               url: '/edit_address_info',
               params: {
@@ -205,7 +241,7 @@ export default {
                   telephone: value.telephone,
                   default_status: default_status,
                   postcode: value.postcode,
-                  label: value.label,
+                  label: nowTag,
                   b_s_id: this.b_s_id
               }
               
@@ -248,6 +284,9 @@ export default {
           }).catch(err => {
               console.log(err);
           })
+      },
+      tagSelect(index) {
+          this.currentIndex = index
       }
   }
   
@@ -270,7 +309,15 @@ export default {
 }
 
 .tag {
+    
+    margin-right: 8px;
+}
+
+.tag-other{
+    margin-right: 8px;
+}
+
+.tag-items {
     margin-left: 75px;
-    margin-right: 5px;
 }
 </style>

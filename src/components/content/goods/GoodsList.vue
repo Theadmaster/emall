@@ -1,8 +1,8 @@
 <template> 
   <div class="goods">
       <!-- <goods-list-item v-for="item in goods" :goods-item="item"/> -->
-      <goods-list-item v-for="item in 4" key="item"/>
-  </div>
+      <goods-list-item v-for="(item, index) in 4" :key="index" />
+  </div> 
 </template>
 
 <script>
@@ -30,4 +30,4 @@ export default {
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-</style>
+</style> 

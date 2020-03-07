@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
       <!-- 导航栏 -->
       <home-nav-bar />
 
@@ -66,6 +66,10 @@ export default {
 </script>
 
 <style scoped>
+
+.home {
+    background-color: #f5f6fa;
+}
 
 .my-swipe .van-swipe-item {
   color: #fff;

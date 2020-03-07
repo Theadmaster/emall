@@ -72,12 +72,26 @@
         <div class="border"></div>
         
         <!-- 标签 -->
+        <!-- 标签 -->
         <van-field
-        v-model="label"
-        type="textarea"
-        name="label"
-        label="标签"
-        >   
+        name = "label"
+        >
+        <van-cell slot="input">
+        <!-- 使用 title 插槽来自定义标题 -->
+            <template slot="title">
+                <span class="custom-title">标签</span>
+                <div class="tag-items">
+                    <van-tag class="tag" v-for="(item, index) in tag" :key="index"
+                    type="primary" 
+                    round 
+                    size="medium"
+                    :plain="!(index == currentIndex)"
+                    @click="tagSelect(index)">
+                    {{item}}
+                    </van-tag>
+                </div>
+            </template>
+        </van-cell>
         </van-field>
 
         <!-- 是否设置默认地址 -->
@@ -125,8 +139,9 @@ export default {
           showArea: false,
           areaList: Area, // 数据格式见 Area 组件文档
           label: '',
-          postcode: ''
-          
+          postcode: '',
+          tag: ['学校', '公司', '家'],
+          currentIndex: 0,
       }
   },
   methods: {
@@ -144,6 +159,20 @@ export default {
           }else{
               default_status = 0
           }
+
+          //   判断标签
+          let nowTag = ''
+          switch(this.currentIndex){
+              case 0:
+                  nowTag = '学校';
+                  break;
+              case 1:
+                  nowTag = '公司';
+                  break;
+              case 2:
+                  nowTag = '家';
+                  break;
+          }
           request({
               url: '/insert_address',
               params: {
@@ -154,7 +183,7 @@ export default {
                   telephone: value.telephone,
                   default_status: default_status,
                   postcode: value.postcode,
-                  label: value.label
+                  label: nowTag
               }
           }).then(res => {
             //   console.log(res);
@@ -176,6 +205,9 @@ export default {
       },
       positioning(){
 
+      },
+      tagSelect(index) {
+          this.currentIndex = index
       }
   },
   created() {
@@ -192,5 +224,23 @@ export default {
 }
 .border {
     border: 5px solid rgba(210, 218, 226,.5);
+}
+
+.custom-title {
+    position:absolute;
+    left: 0;
+}
+
+.tag {
+    
+    margin-right: 8px;
+}
+
+.tag-other{
+    margin-right: 8px;
+}
+
+.tag-items {
+    margin-left: 75px;
 }
 </style>

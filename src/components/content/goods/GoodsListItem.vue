@@ -48,12 +48,18 @@ export default {
   .goods-list-item {
     padding-bottom: 40px;
     position: relative;
-    width: 48%;
+    top: 5px;
+    width: 46%;
+    background-color: #fff;
+    margin: 5px 0;
+    border-radius: 8px;
   }
 
   .goods-list-item img {
     width: 100%;
-    border-radius: 8px;
+    
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
   }
 
   .goods-info {

@@ -65,7 +65,7 @@ export default {
       phoneFormat(value) {
         //   console.log(value)
         //   let value = value.toString()
-          return value.slice(0,3) + '****' + value.slice(-5, -1)
+          return value.slice(0,3) + '****' + value.slice(-4, 11)
       }
   },
   methods: {
