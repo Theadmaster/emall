@@ -4,7 +4,8 @@ import router from './router/index'
 
 import { Button, Form, Area, NavBar, Icon, Field, Switch, Popup,
         Col, Row, Cell, CellGroup, Grid, GridItem, Tag, ActionSheet, 
-        Toast, Tabbar, TabbarItem, Swipe, SwipeItem, Lazyload  } from 'vant';
+        Toast, Tabbar, TabbarItem, Swipe, SwipeItem, Lazyload, TreeSelect,
+        Image  } from 'vant';
 import axios from 'axios';
 
 Vue.use(Button);
@@ -29,6 +30,8 @@ Vue.use(TabbarItem);
 Vue.use(Swipe);
 Vue.use(SwipeItem);
 Vue.use(Lazyload);
+Vue.use(TreeSelect);
+Vue.use(Image);
 
 Vue.config.productionTip = false
 

@@ -60,6 +60,7 @@ export default {
     
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
+    margin-bottom: 5px;
   }
 
   .goods-info {
@@ -73,6 +74,7 @@ export default {
   }
 
   .goods-info p {
+    
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

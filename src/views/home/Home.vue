@@ -17,7 +17,7 @@
       </div>
 
       <!-- 选项 -->
-      <van-grid square>
+      <van-grid square :border="false" >
         <van-grid-item
             v-for="(value,index) in 8"
             :key="value"
@@ -69,6 +69,10 @@ export default {
 
 .home {
     background-color: #f5f6fa;
+}
+
+.home::-webkit-scrollbar{
+    display: none;
 }
 
 .nav-bar {

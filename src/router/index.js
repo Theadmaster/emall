@@ -10,6 +10,8 @@ const Login = () => import('../views/login/Login.vue')
 const Profile = () => import('../views/profile/Profile.vue')
 const Home = () => import('../views/home/Home.vue')
 
+const Category = () => import('views/category/Category.vue')
+
 Vue.use(Router)
 
 const routes = [
@@ -20,6 +22,10 @@ const routes = [
     {
         path: '/home',
         component: Home
+    },
+    {
+        path: '/category',
+        component: Category
     },
     {
         path: '/address/:b_s_id',

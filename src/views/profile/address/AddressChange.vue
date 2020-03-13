@@ -272,10 +272,18 @@ export default {
       addressDelete(item) {
           this.show = false;
           const address_id = this.address_id
+          let default_status = 0
+          if (this.isDefault){
+              default_status = 1
+          }else{
+              default_status = 0
+          }
           request({
               url: '/delete_address_item',
               params: {
-                  address_id: address_id
+                  address_id: address_id,
+                  b_s_id: this.b_s_id,
+                  default_status: default_status
               }
           }).then(res => {
               console.log(res);
